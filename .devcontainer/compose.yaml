@@ -1,0 +1,54 @@
+services:
+  devcontainer:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    command: sleep infinity 
+    # entrypoint: /usr/local/share/docker-init.sh # docker
+    environment:
+      # X11
+      DISPLAY: host.docker.internal:0
+      # # WSLg
+      # DISPLAY: :0
+      # WAYLAND_DISPLAY: ${WAYLAND_DISPLAY}
+      # PULSE_SERVER: ${PULSE_SERVER}
+    volumes:
+      # workspace
+      - type: bind
+        source: ../..
+        target: /workspaces
+      # aqua
+      - type: volume
+        source: aqua
+        target: /home/vscode/.local/share/aquaproj-aqua
+      # git/github
+      - type: bind
+        source: ${HOME}/.gitconfig
+        target: /home/vscode/.gitconfig
+      - type: bind
+        source: ${HOME}/.config/gh
+        target: /home/vscode/.config/gh
+      # # ssh
+      # - type: bind
+      #   source: ${HOME}/.ssh
+      #   target: /home/vscode/.ssh
+      # # docker
+      # - type: bind
+      #   source: /var/run/docker.sock
+      #   target: /var/run/docker-host.sock
+      # # WSLg
+      # - type: bind
+      #   source: /tmp/.X11-unix
+      #   target: /tmp/.X11-unix
+      # - type: bind
+      #   source: /mnt/wslg
+      #   target: /mnt/wslg
+      # # claude
+      # - type: bind
+      #   source: ${HOME}/.claude
+      #   target: /home/vscode/.claude
+      # - type: bind
+      #   source: ${HOME}/.claude.json
+      #   target: /home/vscode/.claude.json
+volumes:
+  aqua:

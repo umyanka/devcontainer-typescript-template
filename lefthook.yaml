@@ -1,0 +1,8 @@
+pre-commit:
+  parallel: true
+  commands:
+    pnpm-fix:
+      run: "pnpm fix {staged_files}"
+      stage_fixed: true
+output:
+  - "failure"
