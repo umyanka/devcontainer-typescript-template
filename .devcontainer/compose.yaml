@@ -1,17 +1,22 @@
 services:
   devcontainer:
-    build: 
+    build:
       context: .
       dockerfile: Dockerfile
-    command: sleep infinity 
+    command: sleep infinity
     # entrypoint: /usr/local/share/docker-init.sh # docker
     environment:
+      TZ: Asia/Tokyo
       # X11
       DISPLAY: host.docker.internal:0
       # # WSLg
       # DISPLAY: :0
       # WAYLAND_DISPLAY: ${WAYLAND_DISPLAY}
       # PULSE_SERVER: ${PULSE_SERVER}
+    # # nested virtualization
+    # devices:
+    #   - /dev/kvm
+    #   - /dev/net/tun
     volumes:
       # workspace
       - type: bind
@@ -19,8 +24,15 @@ services:
         target: /workspaces
       # aqua
       - type: volume
-        source: aqua
-        target: /home/vscode/.local/share/aquaproj-aqua
+        source: aqua-pkgs
+        target: /home/vscode/.local/share/aquaproj-aqua/internal/pkgs
+      - type: volume
+        source: aqua-pkgs
+        target: /home/vscode/.local/share/aquaproj-aqua/pkgs
+      # pnpm
+      - type: volume
+        source: pnpm-global-store
+        target: /home/vscode/.local/share/pnpm/store
       # git/github
       - type: bind
         source: ${HOME}/.gitconfig
@@ -50,5 +62,14 @@ services:
       # - type: bind
       #   source: ${HOME}/.claude.json
       #   target: /home/vscode/.claude.json
+      # # gemini
+      # - type: bind
+      #   source: ${HOME}/.gemini
+      #   target: /home/vscode/.gemini
 volumes:
-  aqua:
+  aqua-pkgs:
+    external: true
+    name: aqua-pkgs
+  pnpm-global-store:
+    external: true
+    name: pnpm-global-store
