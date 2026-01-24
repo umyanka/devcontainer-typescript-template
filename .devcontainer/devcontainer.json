@@ -14,6 +14,7 @@
     "vscode": {
       "extensions": ["biomejs.biome"],
       "settings": {
+        "typescript.tsdk": "./node_modules/typescript/lib",
         "files.insertFinalNewline": true,
         "editor.formatOnSave": true,
         "editor.formatOnType": true,
