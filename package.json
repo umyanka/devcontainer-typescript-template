@@ -5,8 +5,8 @@
   "scripts": {
     "dev": "echo 'TODO dev'",
     "build": "echo 'TODO build'",
-    "check": "biome check",
-    "fix": "biome check --fix"
+    "check": "biome check --no-errors-on-unmatched",
+    "fix": "biome check --no-errors-on-unmatched --fix"
   },
   "dependencies": {
     "es-toolkit": "^1.43.0",
