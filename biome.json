@@ -17,10 +17,7 @@
     "enabled": true,
     "actions": {
       "source": {
-        "recommended": true,
-        "organizeImports": "on",
-        "useSortedAttributes": "on",
-        "useSortedProperties": "on"
+        "recommended": true
       }
     }
   },
@@ -31,23 +28,7 @@
       "project": "all"
     },
     "rules": {
-      "recommended": true,
-      "a11y": {
-        "noNoninteractiveElementInteractions": "on"
-      },
-      "complexity": {
-        "noExcessiveCognitiveComplexity": "on",
-        "noForEach": "on",
-        "noImplicitCoercions": "on",
-        "noUselessStringConcat": "on",
-        "useWhile": "on"
-      },
-      "correctness": {
-        "noNestedComponentDefinitions": "on",
-        "noUndeclaredDependencies": "on",
-        "useImportExtensions": "on",
-        "useUniqueElementIds": "on"
-      }
+      "recommended": true
     }
   },
   "javascript": {
