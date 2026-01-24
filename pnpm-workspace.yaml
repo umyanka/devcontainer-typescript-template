@@ -1,0 +1,6 @@
+# # monorepo
+# packages:
+#   - packages/*
+
+onlyBuiltDependencies:
+  - lefthook
