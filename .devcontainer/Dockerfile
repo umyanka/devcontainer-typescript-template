@@ -5,6 +5,10 @@ ARG AQUA_VERSION=v2.56.2
 RUN curl -fsSL https://github.com/aquaproj/aqua/releases/download/${AQUA_VERSION}/aqua_linux_amd64.tar.gz | tar -zxv -C /usr/local/bin/ aqua \
   && chmod +x /usr/local/bin/aqua
 
+# RUN apt update
+# RUN apt install -y ...
+# RUN apt clean && rm -rf /var/lib/apt/lists/*
+
 # # nested virtualization
 # RUN groupadd --gid 109 kvm && usermod -a -G kvm vscode
 
