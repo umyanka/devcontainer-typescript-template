@@ -29,3 +29,6 @@ ENV PNPM_STORE_PATH=/workspaces/.pnpm-store
 ENV PNPM_HOME=${XDG_DATA_HOME}/pnpm
 RUN mkdir -p ${PNPM_HOME}/store
 ENV PATH=${PNPM_HOME}:$PATH
+
+# # claude code
+# RUN mkdir -p ~/.local/share/claude

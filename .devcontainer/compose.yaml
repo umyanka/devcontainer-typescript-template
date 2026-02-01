@@ -56,6 +56,9 @@ services:
       #   source: /mnt/wslg
       #   target: /mnt/wslg
       # # claude
+      # - type: volume
+      #   source: claude-binary
+      #   target: /home/vscode/.local/share/claude
       # - type: bind
       #   source: ${HOME}/.claude
       #   target: /home/vscode/.claude
@@ -67,9 +70,15 @@ services:
       #   source: ${HOME}/.gemini
       #   target: /home/vscode/.gemini
 volumes:
+  # aqua
   aqua-pkgs:
     external: true
-    name: aqua-pkgs
+    name: devcontainer-aqua-pkgs
+  # pnpm
   pnpm-global-store:
     external: true
-    name: pnpm-global-store
+    name: devcontainer-pnpm-global-store
+  # # claude
+  # claude-binary:
+  #   external: true
+  #   name: devcontainer-claude-binary

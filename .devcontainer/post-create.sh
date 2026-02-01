@@ -10,6 +10,8 @@ aqua install --all
 echo "Installing pnpm packages..."
 pnpm install --frozen-lockfile
 
-# # claude code
-# echo "Installing Claude Code CLI..."
-# npm install -g @anthropic-ai/claude-code
+# # claude
+# if [ ! $(which claude) ]; then
+#   echo "Installing Claude Code..."
+#   curl -fsSL https://claude.ai/install.sh | bash
+# fi
